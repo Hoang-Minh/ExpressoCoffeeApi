@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ExpressoApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ExpressoApi.Service
 {
@@ -17,25 +18,26 @@ namespace ExpressoApi.Service
 
         public IEnumerable<Menu> GetMenus()
         {
-            throw new NotImplementedException();
+            return expressoDbContext.Menus.Include("SubMenus");
         }
 
         public Menu GetMenu(int id)
         {
-            throw new NotImplementedException();
+            return expressoDbContext.Menus.Include("SubMenus").FirstOrDefault(x => x.Id == id);
         }
 
-        public void Post(Menu menu)
+        public void AddMenu(Menu menu)
+        {
+            expressoDbContext.Add(menu);
+            expressoDbContext.SaveChanges(true);
+        }
+
+        public void UpdateMenu(Menu menu)
         {
             throw new NotImplementedException();
         }
 
-        public void Put(Menu menu)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(int id)
+        public void DeleteMenu(int id)
         {
             throw new NotImplementedException();
         }

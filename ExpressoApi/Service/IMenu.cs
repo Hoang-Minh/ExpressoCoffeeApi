@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using ExpressoApi.Models;
 
 namespace ExpressoApi.Service
@@ -10,8 +7,6 @@ namespace ExpressoApi.Service
     {
         IEnumerable<Menu> GetMenus();
         Menu GetMenu(int id);
-        void Post(Menu menu);
-        void Put(Menu menu);
-        void Delete(int id);
+        void AddMenu(Menu menu);
     }
 }

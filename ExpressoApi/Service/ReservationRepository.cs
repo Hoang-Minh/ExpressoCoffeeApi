@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ExpressoApi.Models;
+﻿using ExpressoApi.Models;
 
 namespace ExpressoApi.Service
 {
@@ -15,29 +11,10 @@ namespace ExpressoApi.Service
             expressoDbContext = anExpressoDbContext;
         }
 
-        public IEnumerable<Reservation> GetReservations()
+        public void AddReservation(Reservation reservation)
         {
-            throw new NotImplementedException();
-        }
-
-        public Reservation GetReservation(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Post(Reservation menu)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Put(Reservation menu)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
+            expressoDbContext.Reservations.Add(reservation);
+            expressoDbContext.SaveChanges(true);
         }
     }
 }
